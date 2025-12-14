@@ -118,9 +118,9 @@
       snap.forEach((docu) => {
         const o = docu.data();
         html += `<li style="margin-bottom:10px;">
-          <strong>Status:</strong> ${o.status || "pending"} |
-          <strong>Total:</strong> $${o.total || 0} |
-          <strong>Items:</strong> ${(o.items || []).length}
+          <strong>Status:</strong> ৳{o.status || "pending"} |
+          <strong>Total:</strong> ৳{o.total || 0} |
+          <strong>Items:</strong> ৳{(o.items || []).length}
         </li>`;
       });
       html += "</ul>";
