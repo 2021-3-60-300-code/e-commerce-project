@@ -147,13 +147,13 @@ function displayCartProduct() {
       <tr class="cart-item">
         <td></td>
         <td class="cart-image">
-          <img src="${item.img.singleImage}" alt="" data-id="${item.id}" class="cart-product-image">
-          <i class="bi bi-x delete-cart" data-id="${item.id}"></i>
+          <img src="৳{item.img.singleImage}" alt="" data-id="৳{item.id}" class="cart-product-image">
+          <i class="bi bi-x delete-cart" data-id="৳{item.id}"></i>
         </td>
-        <td>${item.name}</td>
-        <td>${formatBDT(unitBDT)}</td>
-        <td>${item.quantity}</td>
-        <td>${formatBDT(subBDT)}</td>
+        <td>৳{item.name}</td>
+        <td>৳{formatBDT(unitBDT)}</td>
+        <td>৳{item.quantity}</td>
+        <td>৳{formatBDT(subBDT)}</td>
       </tr>
     `;
   });
