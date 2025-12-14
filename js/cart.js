@@ -147,13 +147,13 @@ function displayCartProduct() {
       <tr class="cart-item">
         <td></td>
         <td class="cart-image">
-          <img src="৳{item.img.singleImage}" alt="" data-id="৳{item.id}" class="cart-product-image">
-          <i class="bi bi-x delete-cart" data-id="৳{item.id}"></i>
+          <img src="${item?.img?.singleImage || ""}" alt="" data-id="${item.id}" class="cart-product-image">
+          <i class="bi bi-x delete-cart" data-id="${item.id}"></i>
         </td>
-        <td>৳{item.name}</td>
-        <td>৳{formatBDT(unitBDT)}</td>
-        <td>৳{item.quantity}</td>
-        <td>৳{formatBDT(subBDT)}</td>
+        <td>${item.name}</td>
+        <td>${formatBDT(unitBDT)}</td>
+        <td>${item.quantity}</td>
+        <td>${formatBDT(subBDT)}</td>
       </tr>
     `;
   });
@@ -166,8 +166,8 @@ function cartProductRoute() {
   const images = document.querySelectorAll(".cart-product-image");
   images.forEach((image) => {
     image.addEventListener("click", (e) => {
-      const imageId = e.target.dataset.id;
-      localStorage.setItem("productId", Number(imageId));
+      const imageId = Number(e.target.dataset.id);
+      localStorage.setItem("productId", JSON.stringify(imageId));
       window.location.href = "single-product.html";
     });
   });
@@ -208,7 +208,6 @@ function saveCardValues() {
 }
 
 // ===================== CHECKOUT button (Recommended) =====================
-// ✅ Best practice: cart page থেকে checkout.html এ redirect করো
 const checkoutBtn = document.getElementById("checkoutBtn");
 
 if (checkoutBtn) {
